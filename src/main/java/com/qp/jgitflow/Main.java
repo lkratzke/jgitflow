@@ -10,6 +10,6 @@ package com.qp.jgitflow;
  * @author loren
  */
 public class Main {
-  // Hello 1
+  // Hello 2
   
 }
