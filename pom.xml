@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.qp</groupId>
-    <artifactId>jgitflow</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.qp</groupId>
+  <artifactId>jgitflow</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  
+ 
+    
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>external.atlassian.jgitflow</groupId>
+        <artifactId>jgitflow-maven-plugin</artifactId>
+        <version>1.0-m5.1</version>
+        <configuration>
+          <flowInitContext>
+            <masterBranchName>master</masterBranchName>
+            <developBranchName>development</developBranchName>
+            <featureBranchPrefix>feature-</featureBranchPrefix>
+            <releaseBranchPrefix>release-</releaseBranchPrefix>
+            <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+            <versionTagPrefix>version-</versionTagPrefix>
+          </flowInitContext>
+          <!--<username>USERNAME_FOR_A_GIT_USER</username>
+          <password>PASSWORD_FOR_A_GIT_USER</password>
+          <noDeploy>true</noDeploy>-->
+          <squash>true</squash>
+          <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  
+  <repositories>
+    <repository>
+      <id>nexus-snapshots</id>
+      <url>http://192.168.0.192:8081/repository/maven-snapshots</url>
+    </repository>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://192.168.0.192:8081/repository/maven-releases</url>
+    </repository>
+  </repositories>
+  
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://192.168.0.192:8081/repository/maven-snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://192.168.0.192:8081/repository/maven-releases</url>
+    </repository>
+  </distributionManagement>
 </project>
