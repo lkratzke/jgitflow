@@ -34,6 +34,13 @@
           <squash>true</squash>
           <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.55</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
